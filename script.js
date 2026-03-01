@@ -3,11 +3,17 @@ const checkinInput = document.getElementById("checkin");
 const checkoutInput = document.getElementById("checkout");
 const guestsInput = document.getElementById("guests");
 const roomTypeInput = document.getElementById("roomType");
+const specialRequestInput = document.getElementById("specialRequest");
 const message = document.getElementById("message");
+const bookingCountDisplay = document.getElementById("bookingCount");
 
+let bookingCounter = 0;
+
+// Disable past dates
 const today = new Date().toISOString().split("T")[0];
 checkinInput.setAttribute("min", today);
 
+// Dynamic checkout restriction
 checkinInput.addEventListener("change", function () {
   checkoutInput.value = "";
   checkoutInput.setAttribute("min", checkinInput.value);
@@ -16,11 +22,13 @@ checkinInput.addEventListener("change", function () {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  message.className = "";   
+  message.className = "";
+
   const checkinDate = new Date(checkinInput.value);
   const checkoutDate = new Date(checkoutInput.value);
   const guests = parseInt(guestsInput.value);
   const roomType = roomTypeInput.value;
+  const specialRequest = specialRequestInput.value;
 
   if (!checkinInput.value || !checkoutInput.value) {
     message.textContent = "Please select both dates!";
@@ -46,8 +54,14 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
-  message.textContent = `Booking Confirmed 🎉 Room: ${roomType} | Guests: ${guests}`;
+  message.textContent = `Booking Confirmed 🎉 
+Room: ${roomType} | Guests: ${guests} 
+Special Request: ${specialRequest ? specialRequest : "None"}`;
+
   message.className = "success";
+
+  bookingCounter++;
+  bookingCountDisplay.textContent = bookingCounter;
 
   form.reset();
 });
