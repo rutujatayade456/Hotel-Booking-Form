@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Hotel Booking Form</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Booking Form</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<!-- Header Section -->
+<div class="header">
+  <div class="header-content">
+    <h1>Hotel Rutuja Palace.</h1>
+    <p>khamgaon,444303 | mailto:reservations@rutujagrandstay.com | 91 +9209165350</p>
+  </div>
+</div>
+
+<!-- Form Section -->
+<div class="form-section">
   <h2>Hotel Booking Form</h2>
+  <p>Please fill out the form below to complete your reservation.</p>
 
   <form id="bookingForm">
 
-    <label>Check-in Date:</label>
-    <input type="date" id="checkin" required>
+    <label>Name *</label>
+    <div class="row">
+      <input type="text" placeholder="First Name" required>
+      <input type="text" placeholder="Last Name" required>
+    </div>
 
-    <label>Check-out Date:</label>
-    <input type="date" id="checkout" required>
+    <label>Email *</label>
+    <input type="email" placeholder="Enter your email" required>
 
-    <label>Room Type:</label>
-    <select id="roomType" required>
-      <option value="">Select Room</option>
-      <option>Single</option>
-      <option>Double</option>
-      <option>Suite</option>
-    </select>
+    <label>Phone Number *</label>
+    <input type="tel" placeholder="Enter phone number" required>
 
-    <label>Guest Count:</label>
-    <input type="number" id="guests" min="1" max="10" required>
-    <label>Special Requests:</label>
-    <textarea rows="3"></textarea>
+    <label>Room Type *</label>
+    <div class="radio-group">
+      <label><input type="radio" name="room" required> Single Room</label>
+      <label><input type="radio" name="room"> Double Room</label>
+      <label><input type="radio" name="room"> Suite</label>
+      <label><input type="radio" name="room"> Family Room</label>
+    </div>
 
-    <button type="submit">Book Now</button>
+    <button type="submit">Submit Booking</button>
 
     <p id="message"></p>
 
