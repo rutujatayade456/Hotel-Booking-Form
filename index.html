@@ -3,74 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotel Booking Form</title>
+<title>Hotel Rutuja Palace</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- Header Section -->
 <div class="header">
   <div class="header-content">
-    <h1>Hotel Rutuja Palace.</h1>
-    <p>khamgaon,444303 | mailto:rutuja.palacehotel@gmail.com | +91 9209165350</p>
+    <h1>Hotel Rutuja Palace</h1>
+    <p>Khamgaon, 444303 | rutuja.palacehotel@gmail.com | +91 9209165350</p>
   </div>
 </div>
+
 <!-- Form Section -->
 <div class="form-section">
   <h2>Hotel Booking Form</h2>
   <p>Please fill out the form below to complete your reservation.</p>
 
-  <form id="bookingForm">
+  <!-- FORM START -->
+  <form action="https://formspree.io/f/xpqjeggp" method="POST">
 
-    <label>Name *</label>
-    <div class="row">
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name" required>
-    </div>
+    <label>First Name *</label>
+    <input type="text" name="firstName" required>
+
+    <label>Last Name *</label>
+    <input type="text" name="lastName" required>
 
     <label>Email *</label>
-    <input type="email" placeholder="Enter your email" required>
+    <input type="email" name="email" required>
 
     <label>Phone Number *</label>
-    <input type="tel" placeholder="Enter phone number" required>
+    <input type="tel" name="phone" required>
 
     <label>Room Type *</label>
     <div class="radio-group">
+      <label>
+        <span>Single Room</span>
+        <input type="radio" name="roomType" value="Single Room" required>
+      </label>
 
-  <label>
-    <span>Single Room</span>
-    <input type="radio" name="room" value="Single Room" required>
-  </label>
+      <label>
+        <span>Double Room</span>
+        <input type="radio" name="roomType" value="Double Room">
+      </label>
 
-  <label>
-    <span>Double Room</span>
-    <input type="radio" name="room" value="Double Room">
-  </label>
+      <label>
+        <span>Suite</span>
+        <input type="radio" name="roomType" value="Suite">
+      </label>
 
-  <label>
-    <span>Suite</span>
-    <input type="radio" name="room" value="Suite">
-  </label>
+      <label>
+        <span>Family Room</span>
+        <input type="radio" name="roomType" value="Family Room">
+      </label>
+    </div>
 
-  <label>
-    <span>Family Room</span>
-    <input type="radio" name="room" value="Family Room">
-  </label>
+
+    <button type="submit">Submit Booking</button>
+
+  </form>
+  <!-- FORM END -->
 
 </div>
-<!-- Special Request Section -->
+
+<!-- WhatsApp Special Section (Outside Form) -->
 <div class="special-section">
-  <h3>Send Us a Special Request</h3>
+  <h3>Send Us a Special Message on WhatsApp</h3>
+
   <textarea id="specialMessage" placeholder="Write your message here..."></textarea>
 
-<button type="button" onclick="sendWhatsApp()">
-  Send via WhatsApp
-</button>
+  <button type="button" onclick="sendWhatsApp()">
+    Send via WhatsApp
+  </button>
 </div>
+
+<!-- Popup -->
 <div id="popup" class="popup">
-  Booking Confirmed 🎉
+  Booking Submitted Successfully 🎉
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
