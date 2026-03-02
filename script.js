@@ -65,3 +65,40 @@ Special Request: ${specialRequest ? specialRequest : "None"}`;
 
   form.reset();
 });
+const popup = document.getElementById("popup");
+popup.classList.add("show");
+
+setTimeout(() => {
+  popup.classList.remove("show");
+}, 3000);
+setTimeout(() => {
+  message.textContent = "";
+}, 3000);
+function sendWhatsApp() {
+  const text = document.getElementById("specialMessage").value;
+  const phone = "919209165350"; 
+
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank");
+}
+function sendWhatsApp() {
+  const text = document.getElementById("specialMessage").value;
+  const phone = "919209165350"; 
+
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank");
+}
+function sendWhatsApp() {
+  const message = document.getElementById("specialMessage").value;
+
+  if (message.trim() === "") {
+    alert("Please write a message first!");
+    return;
+  }
+
+  const phoneNumber = "919209165350"; 
+  const whatsappURL =
+    "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+
+  window.open(whatsappURL, "_blank");
+}
