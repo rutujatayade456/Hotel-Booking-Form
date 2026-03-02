@@ -12,10 +12,9 @@
 <div class="header">
   <div class="header-content">
     <h1>Hotel Rutuja Palace.</h1>
-    <p>khamgaon,444303 | mailto:reservations@rutujagrandstay.com | 91 +9209165350</p>
+    <p>khamgaon,444303 | mailto:rutuja.palacehotel@gmail.com | +91 9209165350</p>
   </div>
 </div>
-
 <!-- Form Section -->
 <div class="form-section">
   <h2>Hotel Booking Form</h2>
@@ -37,17 +36,39 @@
 
     <label>Room Type *</label>
     <div class="radio-group">
-      <label><input type="radio" name="room" required> Single Room</label>
-      <label><input type="radio" name="room"> Double Room</label>
-      <label><input type="radio" name="room"> Suite</label>
-      <label><input type="radio" name="room"> Family Room</label>
-    </div>
 
-    <button type="submit">Submit Booking</button>
+  <label>
+    <span>Single Room</span>
+    <input type="radio" name="room" value="Single Room" required>
+  </label>
 
-    <p id="message"></p>
+  <label>
+    <span>Double Room</span>
+    <input type="radio" name="room" value="Double Room">
+  </label>
 
-  </form>
+  <label>
+    <span>Suite</span>
+    <input type="radio" name="room" value="Suite">
+  </label>
+
+  <label>
+    <span>Family Room</span>
+    <input type="radio" name="room" value="Family Room">
+  </label>
+
+</div>
+<!-- Special Request Section -->
+<div class="special-section">
+  <h3>Send Us a Special Request</h3>
+  <textarea id="specialMessage" placeholder="Write your message here..."></textarea>
+
+<button type="button" onclick="sendWhatsApp()">
+  Send via WhatsApp
+</button>
+</div>
+<div id="popup" class="popup">
+  Booking Confirmed 🎉
 </div>
 
 <script src="script.js"></script>
