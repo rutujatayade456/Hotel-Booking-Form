@@ -3,88 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotel Rutuja Palace</title>
+<title>Golden Bay Resort</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Header Section -->
-<div class="header">
-  <div class="header-content">
-    <h1>Hotel Rutuja Palace</h1>
-    <p>Khamgaon, 444303 | rutuja.palacehotel@gmail.com | +91 9209165350</p>
-  </div>
+<nav class="navbar">
+<div class="logo">GOLDEN BAY RESORT</div>
+
+<ul class="nav-links">
+<li><a href="#">HOME</a></li>
+<li><a href="#rooms">ROOMS</a></li>
+<li><a href="#booking">BOOKING</a></li>
+<li><a href="#">DINING</a></li>
+<li><a href="#">GALLERY</a></li>
+</ul>
+
+<a href="#booking" class="reserve-btn">RESERVE</a>
+</nav>
+
+
+<section class="hero">
+<div class="hero-overlay">
+<h1 class="hero-title">Golden Bay Resort</h1>
+<p class="hero-subtitle">Experience Luxury & Comfort</p>
+<a href="#rooms" class="hero-btn">Reserve Your Stay</a>
+</div>
+</section>
+
+
+<div class="main-container" id="rooms">
+<h1 class="heading">Choose Your Room</h1>
+
+<div class="booking-container">
+
+<!-- ROOMS -->
+<div class="rooms">
+
+<div class="room active" onclick="selectRoom('Classic Single',5500)">
+<img src="room1.jpg">
+<div class="room-text">
+<h3>Classic Single</h3>
+<p>from ₹5500 / night</p>
+</div>
 </div>
 
-<!-- Form Section -->
-<div class="form-section">
-  <h2>Hotel Booking Form</h2>
-  <p>Please fill out the form below to complete your reservation.</p>
+<div class="room" onclick="selectRoom('Classic Double',8500)">
+<img src="room2.jpg">
+<div class="room-text">
+<h3>Classic Double</h3>
+<p>from ₹8500 / night</p>
+</div>
+</div>
 
-  <!-- FORM START -->
-  <form action="https://formspree.io/f/xpqjeggp" method="POST">
+<div class="room" onclick="selectRoom('Deluxe Double',12000)">
+<img src="room3.jpg">
+<div class="room-text">
+<h3>Deluxe Double</h3>
+<p>from ₹12000 / night</p>
+</div>
+</div>
 
-    <label>First Name *</label>
-    <input type="text" name="firstName" required>
-
-    <label>Last Name *</label>
-    <input type="text" name="lastName" required>
-
-    <label>Email *</label>
-    <input type="email" name="email" required>
-
-    <label>Phone Number *</label>
-    <input type="tel" name="phone" required>
-
-    <label>Room Type *</label>
-    <div class="radio-group">
-      <label>
-        <span>Single Room</span>
-        <input type="radio" name="roomType" value="Single Room" required>
-      </label>
-
-      <label>
-        <span>Double Room</span>
-        <input type="radio" name="roomType" value="Double Room">
-      </label>
-
-      <label>
-        <span>Suite</span>
-        <input type="radio" name="roomType" value="Suite">
-      </label>
-
-      <label>
-        <span>Family Room</span>
-        <input type="radio" name="roomType" value="Family Room">
-      </label>
-    </div>
-
-
-    <button type="submit">Submit Booking</button>
-
-  </form>
-  <!-- FORM END -->
+<div class="room" onclick="selectRoom('Grand Suite',18000)">
+<img src="room4.jpg">
+<div class="room-text">
+<h3>Grand Suite</h3>
+<p>from ₹18000 / night</p>
+</div>
+</div>
 
 </div>
 
-<!-- WhatsApp Special Section (Outside Form) -->
-<div class="special-section">
-  <h3>Send Us a Special Message on WhatsApp</h3>
 
-  <textarea id="specialMessage" placeholder="Write your message here..."></textarea>
 
-  <button type="button" onclick="sendWhatsApp()">
-    Send via WhatsApp
-  </button>
+<!-- BOOKING FORM -->
+<form class="summary" id="booking"
+action="https://formsubmit.co/tayaderutuja501@gmail.com"
+method="POST"
+onsubmit="return sendBooking()">
+
+<h2>Your Booking</h2>
+
+<label>Your Name</label>
+<input type="text" name="name" required>
+
+<label>Your Email</label>
+<input type="email" name="email" required>
+
+<label>Check In</label>
+<input type="date" id="checkin" required>
+
+<label>Check Out</label>
+<input type="date" id="checkout" required>
+
+<label>Guests</label>
+<input type="number" name="guests" value="1" min="1" required>
+
+<hr>
+
+<p>Room: <span id="roomName">Classic Single</span></p>
+<p>Price: ₹<span id="price">5500</span> / night</p>
+<p>Total: ₹<span id="total">5500</span></p>
+
+<input type="hidden" name="room" id="roomInput">
+<input type="hidden" name="total" id="totalInput">
+<input type="hidden" name="_subject" value="New Booking - Golden Bay Resort">
+<input type="hidden" name="_captcha" value="false">
+
+<button type="submit">Confirm Booking</button>
+
+</form>
+
+</div>
+</div>
+<!-- HOTEL REVIEWS -->
+<section class="reviews">
+
+<h2>Guest Reviews</h2>
+
+<div class="review-container">
+
+<div class="review-card">
+<p>"Amazing stay! Rooms were beautiful and service was excellent."</p>
+<div class="stars">★★★★★</div>
+<h4>Priya Sharma</h4>
 </div>
 
-<!-- Popup -->
-<div id="popup" class="popup">
-  Booking Submitted Successfully 🎉
+<div class="review-card">
+<p>"Best resort experience ever. Food and pool area were fantastic."</p>
+<div class="stars">★★★★★</div>
+<h4>Rahul Mehta</h4>
 </div>
 
-<script src="script.js"></script>
+<div class="review-card">
+<p>"Loved the ambience and luxury feel. Highly recommended!"</p>
+<div class="stars">★★★★★</div>
+<h4>Sneha Kapoor</h4>
+</div>
+
+</div>
+</section>
+
+
+<script>
+function selectRoom(name,price){
+document.getElementById("roomName").innerText=name
+document.getElementById("price").innerText=price
+document.getElementById("total").innerText=price
+}
+
+function sendBooking(){
+document.getElementById("roomInput").value=
+document.getElementById("roomName").innerText
+
+document.getElementById("totalInput").value=
+document.getElementById("total").innerText
+return true;
+}
+</script>
 
 </body>
 </html>
